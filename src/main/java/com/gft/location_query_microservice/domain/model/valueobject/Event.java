@@ -1,6 +1,7 @@
 package com.gft.location_query_microservice.domain.model.valueobject;
 
 import com.gft.location_query_microservice.domain.model.valueobject.enums.EventType;
+import com.gft.location_query_microservice.infraestructure.configuration.JacocoAnnotationGenerated;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 @AllArgsConstructor
+@JacocoAnnotationGenerated
 public class Event {
 
     @NotNull(message = "Event ID cannot be null")

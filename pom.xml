@@ -100,7 +100,6 @@
                         <configuration>
                             <excludes>
                                 <exclude>**/domain/*</exclude>
-                                <exclude>**/repository/*</exclude>
 
                                 <exclude>**/*EndToEndTest.java</exclude>
                             </excludes>

@@ -4,6 +4,7 @@ import com.gft.location_query_microservice.domain.model.valueobject.Coordinates;
 import com.gft.location_query_microservice.domain.model.valueobject.Event;
 import com.gft.location_query_microservice.domain.model.valueobject.enums.Direction;
 import com.gft.location_query_microservice.domain.model.valueobject.enums.OperationalStatus;
+import com.gft.location_query_microservice.infraestructure.configuration.JacocoAnnotationGenerated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -20,6 +21,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @Document(collection = "Location")
+@JacocoAnnotationGenerated
 public class LocationUpdate {
 
     @NotNull(message = "Vehicle ID cannot be null")

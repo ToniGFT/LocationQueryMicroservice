@@ -1,5 +1,6 @@
 package com.gft.location_query_microservice.domain.model.valueobject;
 
+import com.gft.location_query_microservice.infraestructure.configuration.JacocoAnnotationGenerated;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
@@ -10,6 +11,7 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
+@JacocoAnnotationGenerated
 public class Coordinates {
 
     @NotNull(message = "Latitude cannot be null")
