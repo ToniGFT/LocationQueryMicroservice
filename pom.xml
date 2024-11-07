@@ -99,8 +99,8 @@
                         </goals>
                         <configuration>
                             <excludes>
-                                <exclude>**/src/main/java/com/gft/location_query_microservice/domain/*</exclude>
-                                <exclude>**/src/main/java/com/gft/location_query_microservice/domain/*</exclude>
+                                <exclude>**/domain/*</exclude>
+                                <exclude>**/repository/*</exclude>
 
                                 <exclude>**/*EndToEndTest.java</exclude>
                             </excludes>
