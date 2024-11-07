@@ -99,6 +99,7 @@
                         </goals>
                         <configuration>
                             <excludes>
+                                <exclude>**/*Generated*</exclude>
                                 <exclude>**/*EndToEndTest.java</exclude>
                             </excludes>
                         </configuration>
