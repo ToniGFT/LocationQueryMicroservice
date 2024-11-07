@@ -99,7 +99,9 @@
                         </goals>
                         <configuration>
                             <excludes>
-                                <exclude>**/*Generated*</exclude>
+                                <exclude>com/gft/location_query_microservice/domain/repository/*</exclude>
+                                <exclude>com/gft/location_query_microservice/domain/*</exclude>
+
                                 <exclude>**/*EndToEndTest.java</exclude>
                             </excludes>
                         </configuration>
