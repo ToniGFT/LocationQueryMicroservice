@@ -3,5 +3,5 @@ spring:
     name: location-query-microservice
   data:
     mongodb:
-      uri: mongodb+srv://nabz:nabz@workshop.rh1jm.mongodb.net/Workshop?retryWrites=true&w=majority
+      uri: mongodb+srv://nuriamongodb:NoD7XFXMhzBWEZsb@cluster0.dmnaa.mongodb.net/
 
