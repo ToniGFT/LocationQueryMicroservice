@@ -1,5 +1,6 @@
-package com.gft.location_query_microservice.domain.model.mapper;
+package com.gft.location_query_microservice.domain.model.mapper.config;
 
+import com.gft.location_query_microservice.domain.events.LocationCreatedEvent;
 import com.gft.location_query_microservice.domain.events.LocationUpdatedEvent;
 import com.gft.location_query_microservice.domain.model.aggregates.LocationUpdate;
 import lombok.Getter;
@@ -15,7 +16,16 @@ public class ModelMapperConfig {
         modelMapper.addMappings(new PropertyMap<LocationUpdatedEvent, LocationUpdate>() {
             @Override
             protected void configure() {
-                skip(destination.getVehicleId());
+                map(source.getVehicleId(), destination.getVehicleId());
+                map(source.getRouteId(), destination.getRouteId());
+            }
+        });
+
+        modelMapper.addMappings(new PropertyMap<LocationCreatedEvent, LocationUpdate>() {
+            @Override
+            protected void configure() {
+                map(source.getVehicleId(), destination.getVehicleId());
+                map(source.getRouteId(), destination.getRouteId());
             }
         });
     }
@@ -23,3 +33,4 @@ public class ModelMapperConfig {
     private ModelMapperConfig() {
     }
 }
+

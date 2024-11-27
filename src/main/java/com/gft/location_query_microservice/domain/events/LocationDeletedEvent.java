@@ -11,5 +11,5 @@ import org.bson.types.ObjectId;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LocationDeletedEvent {
-    private ObjectId locationId;
+    private ObjectId vehicleId;
 }

@@ -37,20 +37,20 @@ public class LocationEventProcessorImpl implements LocationEventProcessor {
     @Override
     public Mono<Void> processLocationDeletedEvent(LocationDeletedEvent event) {
         logger.info("Processing LocationDeletedEvent: {}", event);
-        return locationCommandRepository.deleteById(event.getLocationId())
-                .doOnSuccess(unused -> logger.info("Successfully deleted location update with ID: {}", event.getLocationId()))
-                .doOnError(error -> logger.error("Failed to delete location update with ID: {}", event.getLocationId(), error))
+        return locationCommandRepository.deleteById(event.getVehicleId())
+                .doOnSuccess(unused -> logger.info("Successfully deleted location update with vehicle ID: {}", event.getVehicleId()))
+                .doOnError(error -> logger.error("Failed to delete location update with vehicle ID: {}", event.getVehicleId(), error))
                 .then();
     }
 
     @Override
     public Mono<Void> processLocationUpdatedEvent(LocationUpdatedEvent event) {
         logger.info("Processing LocationUpdatedEvent: {}", event);
-        return locationCommandRepository.findById(event.getLocationId())
-                .doOnSubscribe(subscription -> logger.debug("Fetching location update with ID: {}", event.getLocationId()))
+        return locationCommandRepository.findById(event.getVehicleId())
+                .doOnSubscribe(subscription -> logger.debug("Fetching location update with vehicle ID: {}", event.getVehicleId()))
                 .doOnNext(existingLocation -> logger.debug("Found existing location update: {}", existingLocation))
                 .switchIfEmpty(Mono.defer(() -> {
-                    logger.warn("No location update found with ID: {}", event.getLocationId());
+                    logger.warn("No location update found with vehicle ID: {}", event.getVehicleId());
                     return Mono.empty();
                 }))
                 .flatMap(existingLocation -> {
@@ -59,7 +59,8 @@ public class LocationEventProcessorImpl implements LocationEventProcessor {
                     return locationCommandRepository.save(updatedLocation)
                             .doOnSuccess(savedLocation -> logger.info("Successfully updated location update in database: {}", savedLocation));
                 })
-                .doOnError(error -> logger.error("Failed to update location update with ID: {}", event.getLocationId(), error))
+                .doOnError(error -> logger.error("Failed to update location update with vehicle ID: {}", event.getVehicleId(), error))
                 .then();
     }
 }
+

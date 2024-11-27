@@ -3,11 +3,12 @@ package com.gft.location_query_microservice.domain.model.mapper;
 import com.gft.location_query_microservice.domain.events.LocationCreatedEvent;
 import com.gft.location_query_microservice.domain.events.LocationUpdatedEvent;
 import com.gft.location_query_microservice.domain.model.aggregates.LocationUpdate;
+import com.gft.location_query_microservice.domain.model.mapper.config.ModelMapperConfig;
 import org.modelmapper.ModelMapper;
 
 public class LocationEventMapper {
 
-    private static final ModelMapper modelMapper = com.gft.location_query_microservice.domain.model.mapper.ModelMapperConfig.getModelMapper();
+    private static final ModelMapper modelMapper = ModelMapperConfig.getModelMapper();
 
     private LocationEventMapper() {
     }
@@ -21,3 +22,4 @@ public class LocationEventMapper {
         return existingLocation;
     }
 }
+
